@@ -1,32 +1,5 @@
 
 
-
-.navbar {
-    position: fixed;
-
-
-    flex-wrap: wrap;
-
-    align-items: stretch;
-
-    justify-content: space-between;
-    padding: 1rem 1rem;
-    background-color: #323130;
-}
-
-.navbar-brand {
-    display:flex ;
-    padding-bottom: .5rem;
-    margin-right: 1000%;
-    margin-left: 4rem;
-    margin-top: .01rem;
-    font-size: 1.25rem;
-    position: relative;
-    
-    
-}
-
-
 .css-1adrfps {
 
     background-color: rgb(240, 242, 246);

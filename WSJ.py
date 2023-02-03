@@ -140,9 +140,10 @@ def runner():
 
     options = webdriver.ChromeOptions()
     
-    options.headless = True
+    # options.headless = True
+    options.add_argument('--headless')
     
-    options.add_experimental_option("excludeSwitches", ["enable-logging"])
+    # options.add_experimental_option("excludeSwitches", ["enable-logging"])
     
     print("\nScraper Intialized: ",datetime.datetime.now())
     
@@ -212,17 +213,17 @@ def get_next():
         
         with st.spinner("Processing..."):            
         
-            try:
+            # try:
                 data = runner()
                 df = pre_process(data)
                 df2 = pd.DataFrame(df)    
                 df2 = DB.append(df2)        
                 df2 = df2.drop_duplicates(['Title','Date']).reset_index().drop('index',axis = 1)   
                 df2.to_csv("WSJ_Load.csv",index=False)                
-                return "Success"
+                # return "Success"
         
-            except:
-                return "Failed"
+            # :
+                # return "Failed"
             
 @st.experimental_memo
 def convert_df(x):
@@ -239,50 +240,37 @@ def main_page():
     
     _ , b , _ = st.columns([.03,1,.1])    
     with b:
-            
         st.plotly_chart(chart)
-    
     
     tbl = table[::-1].copy()[['Title','Period','Forecast','Actual','News_Date','Days_Left','Update_Time']]    
     
     _ , b , _ = st.columns([.1,1,.3])    
     with b:
-        
         st.subheader("Asof - " + str(TODAY_DATE.date()))      
         box_grid(tbl)
 
+
     _,  al , bl , _ = st.columns([1.2,1,1,10])
-    
     with al:
         prompt = st.button("Get Latest Data!")
     with bl: 
         st.download_button( "Export to CSV",   csv,   "ALL_DATA.csv",   "text/csv",   key='download-csv')             
     
     winner = st.container()
-    
     if prompt:            
         meg = get_next()
-        
         with winner:
             st.warning(meg)
-        
-
-        
-
-
-
+  
+  
 sys.tracebacklimit = 0
-
 st.set_page_config(page_title= 'Market Data Hub',page_icon = ":shark:",layout='wide')
-
 
 with open("main.css") as f:
     sidebar_collapse_design = st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
 
 hide_st_style = """ <style>  #MainMenu {visibility: hidden;} footer {visibility: hidden;} header {visibility: hidden;} </style> """
-
 st.markdown(hide_st_style, unsafe_allow_html=True)
-
 Warning = False   
 
 DB = pd.read_csv("WSJ_Load.csv").drop_duplicates(['Title','Date'])
