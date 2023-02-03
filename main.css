@@ -1,0 +1,122 @@
+
+
+
+.navbar {
+    position: fixed;
+
+
+    flex-wrap: wrap;
+
+    align-items: stretch;
+
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    background-color: #323130;
+}
+
+.navbar-brand {
+    display:flex ;
+    padding-bottom: .5rem;
+    margin-right: 1000%;
+    margin-left: 4rem;
+    margin-top: .01rem;
+    font-size: 1.25rem;
+    position: relative;
+    
+    
+}
+
+
+.css-1adrfps {
+
+    background-color: rgb(240, 242, 246);
+    background-attachment: fixed;
+    flex-shrink: 0;
+    height: calc(100vh - 2px);
+    top: 2px;
+    overflow: auto;
+    padding: 6rem 1rem;
+    position: unset;
+    transition: margin-left 300ms ease 0s, box-shadow 300ms ease 0s;
+    width: 21rem;
+    z-index: 1000021;
+    margin-left: 0px;
+}
+
+
+.css-9s5bis {
+    display: fixed;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    border-radius: 0.0rem;
+    margin-right: 0rem;
+    margin-left: 100%;
+    margin-top: .8rem;
+    color: white;
+    width: auto;
+    user-select: none;
+    background-color: transparent;
+    border: none;
+    padding: none;
+    
+}
+
+.css-1wf22gv{
+position: unset;
+}
+ 
+
+.css-18e3th9{
+padding-top: 0rem;
+
+}
+
+span[data-baseweb="tag"] {
+    background-color: purple !important;
+  }
+
+.css-eczf16{
+    width:0;
+
+}
+
+.left{
+    position: fixed;
+    
+    right: 4rem;
+       
+}
+.css-1qrvfrg {
+    position: fixed;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    font-weight: 400;
+    padding: 0.25rem 6rem;
+    border-radius: 0.25rem;
+    margin: 0px;
+    line-height: 1.6;
+    color: inherit;
+    width: auto;
+    bottom: 25px;
+    margin-left: 18px;
+    background-color: rgb(249, 249, 251);
+    border: 1px solid rgba(49, 51, 63, 0.2);
+}    
+
+.css-1cpxqw2{
+
+    width: inherit;
+}
+
+
+.st-cj {
+    padding-right: 3.5px;
+}
+
+.button, select {
+    text-transform: none;
+    margin-bottom: 10px;
+}
