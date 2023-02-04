@@ -1,20 +1,22 @@
 Date,Title,Period,Forecast,Actual,Update_Time
 2023-02-02 08:30:00-05:00,Preliminary Productivity & Costs,4Q,2.50%,3.00%,Thu Feb  2 21:13:45 2023
-2023-02-02 08:30:00-05:00,Unemployment Insurance Weekly Claims Report - Initial Claims,28-Jan,195K,183K,Thu Feb  2 21:13:45 2023
 2023-02-02 10:30:00-05:00,EIA Weekly Natural Gas Storage Report,27-Jan,2585B,2583B,Thu Feb  2 21:13:45 2023
-2023-02-03 08:30:00-05:00,U.S. Employment Report,Jan,+187K,+517K,Fri Feb  3 18:08:52 2023
-2023-02-10 10:00:00-05:00,University of Michigan Survey of Consumers - preliminary,Feb,65.1,-,Fri Feb  3 18:08:52 2023
-2023-02-09 10:30:00-05:00,EIA Weekly Natural Gas Storage Report,02/03,-,-,Fri Feb  3 18:08:52 2023
-2023-02-09 08:30:00-05:00,Unemployment Insurance Weekly Claims Report - Initial Claims,02/04,192K,-,Fri Feb  3 18:08:52 2023
-2023-02-08 10:30:00-05:00,EIA Weekly Petroleum Status Report,02/03,-,-,Fri Feb  3 18:08:52 2023
-2023-02-07 08:30:00-05:00,U.S. International Trade in Goods & Services,Dec,-68.3B,-,Fri Feb  3 18:08:52 2023
-2023-02-03 10:00:00-05:00,ISM Report On Business Services PMI,Jan,50.6,55.2,Fri Feb  3 18:08:52 2023
-2023-02-14 08:30:00-05:00,CPI,Jan,-,-,Fri Feb  3 18:08:52 2023
+2023-02-02 08:30:00-05:00,Unemployment Insurance Weekly Claims Report - Initial Claims,28-Jan,195K,183K,Thu Feb  2 21:13:45 2023
 2023-02-07 08:30:00-05:00,U.S. International Trade in Goods & Services,Dec,-68.3B,-,Fri Feb  3 23:29:12 2023
-2023-02-08 10:30:00-05:00,EIA Weekly Petroleum Status Report,02/03,-,-,Fri Feb  3 23:29:12 2023
-2023-02-09 08:30:00-05:00,Unemployment Insurance Weekly Claims Report - Initial Claims,02/04,192K,-,Fri Feb  3 23:29:12 2023
-2023-02-09 10:30:00-05:00,EIA Weekly Natural Gas Storage Report,02/03,-,-,Fri Feb  3 23:29:12 2023
-2023-02-10 10:00:00-05:00,University of Michigan Survey of Consumers - preliminary,Feb,65.1,-,Fri Feb  3 23:29:12 2023
-2023-02-14 08:30:00-05:00,CPI,Jan,-,-,Fri Feb  3 23:29:12 2023
 2023-02-15 08:30:00-05:00,Advance Monthly Sales for Retail & Food Services,Jan,-,-,Fri Feb  3 23:29:12 2023
+2023-02-14 08:30:00-05:00,CPI,Jan,-,-,Fri Feb  3 23:29:12 2023
+2023-02-10 10:00:00-05:00,University of Michigan Survey of Consumers - preliminary,Feb,65.1,-,Fri Feb  3 23:29:12 2023
+2023-02-09 10:30:00-05:00,EIA Weekly Natural Gas Storage Report,02/03,-,-,Fri Feb  3 23:29:12 2023
+2023-02-09 08:30:00-05:00,Unemployment Insurance Weekly Claims Report - Initial Claims,02/04,192K,-,Fri Feb  3 23:29:12 2023
+2023-02-08 10:30:00-05:00,EIA Weekly Petroleum Status Report,02/03,-,-,Fri Feb  3 23:29:12 2023
 2023-02-15 09:15:00-05:00,Industrial Production & Capacity Utilization,Jan,-,-,Fri Feb  3 23:29:12 2023
+2023-02-03 08:30:00-05:00,U.S. Employment Report,Jan,+187K,+517K,Fri Feb  3 18:08:52 2023
+2023-02-03 10:00:00-05:00,ISM Report On Business Services PMI,Jan,50.6,55.2,Fri Feb  3 18:08:52 2023
+2023-02-07 08:30:00-05:00,U.S. International Trade in Goods & Services,Dec,-68.3B,-,Sat Feb  4 01:05:12 2023
+2023-02-08 10:30:00-05:00,EIA Weekly Petroleum Status Report,02/03,-,-,Sat Feb  4 01:05:12 2023
+2023-02-09 08:30:00-05:00,Unemployment Insurance Weekly Claims Report - Initial Claims,02/04,192K,-,Sat Feb  4 01:05:12 2023
+2023-02-09 10:30:00-05:00,EIA Weekly Natural Gas Storage Report,02/03,-,-,Sat Feb  4 01:05:12 2023
+2023-02-10 10:00:00-05:00,University of Michigan Survey of Consumers - preliminary,Feb,65.1,-,Sat Feb  4 01:05:12 2023
+2023-02-14 08:30:00-05:00,CPI,Jan,-,-,Sat Feb  4 01:05:12 2023
+2023-02-15 08:30:00-05:00,Advance Monthly Sales for Retail & Food Services,Jan,-,-,Sat Feb  4 01:05:12 2023
+2023-02-15 09:15:00-05:00,Industrial Production & Capacity Utilization,Jan,-,-,Sat Feb  4 01:05:12 2023
