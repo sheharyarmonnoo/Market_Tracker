@@ -1,7 +1,7 @@
 
 import streamlit as st, sys
 from selenium import webdriver
-from st_aggrid import GridOptionsBuilder, AgGrid, ColumnsAutoSizeMode
+from st_aggrid import GridOptionsBuilder, AgGrid, ColumnsAutoSizeMode, JsCode
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
@@ -11,9 +11,10 @@ import plotly.graph_objects as go
 
 
 
-def box_grid(x):
+def box_grid(grid_data):
     
-    
+        x = grid_data.reset_index().drop({'index'},axis = 1)
+        
         gb = GridOptionsBuilder.from_dataframe(x)
                            
         gb.configure_pagination(paginationAutoPageSize=True) #Add pagination
@@ -29,6 +30,12 @@ def box_grid(x):
                             filterable=True
                         )
         
+        rows_today = list(x[x['Days_Left'] == 0].index)
+        
+        print(x[x['Days_Left'] == 0])
+        
+        
+        gb.configure_selection('multiple', pre_selected_rows=rows_today)
         
         gridOptions = gb.build()
     
