@@ -1,13 +1,14 @@
 
 import streamlit as st, sys
 from selenium import webdriver
-from st_aggrid import GridOptionsBuilder, AgGrid, ColumnsAutoSizeMode, JsCode
+from st_aggrid import GridOptionsBuilder, AgGrid, ColumnsAutoSizeMode
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 import regex as re ,pandas as pd,  datetime ,os
 import plotly.express as px
 import plotly.graph_objects as go
+import pytz
 
 
 
@@ -30,10 +31,7 @@ def box_grid(grid_data):
                             filterable=True
                         )
         
-        rows_today = list(x[x['Days_Left'] == 0].index)
-        
-        print(x[x['Days_Left'] == 0])
-        
+        rows_today = list(x[x['Days_Left'] == 0].index)       
         
         gb.configure_selection('multiple', pre_selected_rows=rows_today)
         
@@ -294,7 +292,7 @@ DB = pd.read_csv("WSJ_Load.csv")\
                 .drop_duplicates(['Title','Date'])
                 
 csv  =convert_df(DB)
-TODAY_DATE = datetime.datetime.now()
+TODAY_DATE = datetime.datetime.now().astimezone(pytz.timezone('America/Chicago'))
 
 
 main_page()
