@@ -4,5 +4,5 @@
 
 This app tracks all major upcoming market events by updating sources from across the web. 
 
-Proof of concept can be scaled to further more components.
+Proof of concept only which can be scaled further.
 
