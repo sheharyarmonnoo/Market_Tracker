@@ -233,7 +233,7 @@ def get_next():
                 return "Success"
         
             except:
-                return "Failed"
+                return "Not Currently Support on this version"
             
 @st.experimental_memo
 def convert_df(x):
