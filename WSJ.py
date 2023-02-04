@@ -9,6 +9,8 @@ import regex as re ,pandas as pd,  datetime ,os
 import plotly.express as px
 import plotly.graph_objects as go
 
+
+
 def box_grid(x):
     
     
@@ -16,7 +18,7 @@ def box_grid(x):
                            
         gb.configure_pagination(paginationAutoPageSize=True) #Add pagination
         gb.configure_side_bar() #Add a sidebar
-        gb.configure_selection('multiple', use_checkbox=True
+        gb.configure_selection('multiple', use_checkbox=False
                                 , groupSelectsChildren="Group checkbox select children") #Enable multi-row selection
         
         gb.configure_default_column(groupable=True, 
@@ -30,11 +32,9 @@ def box_grid(x):
         
         gridOptions = gb.build()
     
-    
         grid_response = AgGrid( x,      gridOptions=gridOptions,                data_return_mode='AS_INPUT',
-                                            columns_auto_size_mode=ColumnsAutoSizeMode.FIT_CONTENTS,    enable_enterprise_modules=False,   update_mode='NO_UPDATE',       
-                                height=400,           width='100%')    
-        
+                                          theme="material" , columns_auto_size_mode=ColumnsAutoSizeMode.FIT_ALL_COLUMNS_TO_VIEW,    enable_enterprise_modules=False,   update_mode='NO_UPDATE',       
+                                height=600,           width='100%')    
         
         
         return grid_response              
@@ -241,27 +241,31 @@ def main_page():
     current_file_dir = os.path.dirname(current_file_path)
     os.chdir(current_file_dir)
     
-    chart , table = analytics(DB)
-    
-    _ , b , _ = st.columns([.03,1,.1])    
-    with b:
-        st.plotly_chart(chart)
+    chart , table = analytics(DB)        
     
     tbl = table.copy()\
                     [['Title','Period','Forecast','Actual','News_Date','Days_Left','Update_Time']]\
                     .sort_values(by=['Days_Left'],ascending=False)
+
     
-    _ , b , _ = st.columns([.1,1,.3])    
+    
+    
+    
+    
+    st.plotly_chart(chart,use_container_width=True)
+    
+    _ , b , _ = st.columns([.1,5,.1])    
     with b:
-        st.subheader("Asof - " + str(TODAY_DATE.date()))      
+        st.markdown("**As of** - " + str(TODAY_DATE.strftime('%Y-%m-%d %H:%M:%S')))      
         box_grid(tbl)
-
-
-    _,  al , bl , _ = st.columns([1.2,1,1,10])
+        
+    _,  al , bl , _ = st.columns([.1,1,1,5])
     with al:
         prompt = st.button("Get Latest Data!")
     with bl: 
-        st.download_button( "Export to CSV",   csv,   "ALL_DATA.csv",   "text/csv",   key='download-csv')             
+        st.download_button( "Export to CSV",   csv,   "ALL_DATA.csv",   "text/csv",   key='download-csv')       
+
+      
     
     winner = st.container()
     if prompt:            
@@ -272,21 +276,20 @@ def main_page():
   
 sys.tracebacklimit = 0
 st.set_page_config(page_title= 'Market Data Hub',page_icon = ":shark:",layout='wide')
-
 with open("main.css") as f:
     sidebar_collapse_design = st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
-
+    
 hide_st_style = """ <style>  #MainMenu {visibility: hidden;} footer {visibility: hidden;} header {visibility: hidden;} </style> """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 Warning = False   
-
 DB = pd.read_csv("WSJ_Load.csv")\
                 .sort_values(by=['Update_Time'],ascending=False)\
                 .drop_duplicates(['Title','Date'])
                 
 csv  =convert_df(DB)
-
 TODAY_DATE = datetime.datetime.now()
+
+
 main_page()
 
 
