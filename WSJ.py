@@ -143,9 +143,11 @@ def runner():
     # options.headless = True
     options.add_argument('--headless')
     
-    # options.add_experimental_option("excludeSwitches", ["enable-logging"])
+    options.add_experimental_option("excludeSwitches", ["enable-logging"])
     
     print("\nScraper Intialized: ",datetime.datetime.now())
+    
+    # driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
     
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=options)
     
@@ -184,14 +186,17 @@ def analytics(x):
     color_discrete_map = { c : colors.get(c, default_color)  for c in all_months_standard}
 
 
-    fig = px.timeline(gnt[gnt['Days_Left'] > 0], x_start='today', x_end="News_Date"
+    fig = px.timeline(
+        
+        gnt[gnt['Days_Left'] > 0].sort_values(by=['Days_Left'],ascending=True)
+        
+        , x_start='today', x_end="News_Date"
                     , y="Title", text= 'Title', title = 'Upcoming Market Events'                    
                     , color_discrete_map=color_discrete_map ,template='presentation', hover_name = 'Delta')
 
-    # fig.update_yaxes(autorange="reversed") # otherwise tasks are listed from the bottom up
+    
 
     fig.update_layout(
-        # xaxis=dict(range=[week_age, TODAY_DATE +  datetime.timedelta(days=20)] )    
         yaxis_title = ""
         ,yaxis=dict(showticklabels=False)
         ,width = 1800
@@ -213,17 +218,17 @@ def get_next():
         
         with st.spinner("Processing..."):            
         
-            # try:
+            try:
                 data = runner()
                 df = pre_process(data)
                 df2 = pd.DataFrame(df)    
                 df2 = DB.append(df2)        
-                df2 = df2.drop_duplicates(['Title','Date']).reset_index().drop('index',axis = 1)   
+                df2 = df2.drop_duplicates(['Title','Date'])
                 df2.to_csv("WSJ_Load.csv",index=False)                
-                # return "Success"
+                return "Success"
         
-            # :
-                # return "Failed"
+            except:
+                return "Failed"
             
 @st.experimental_memo
 def convert_df(x):
@@ -242,7 +247,9 @@ def main_page():
     with b:
         st.plotly_chart(chart)
     
-    tbl = table[::-1].copy()[['Title','Period','Forecast','Actual','News_Date','Days_Left','Update_Time']]    
+    tbl = table.copy()\
+                    [['Title','Period','Forecast','Actual','News_Date','Days_Left','Update_Time']]\
+                    .sort_values(by=['Days_Left'],ascending=False)
     
     _ , b , _ = st.columns([.1,1,.3])    
     with b:
@@ -273,7 +280,10 @@ hide_st_style = """ <style>  #MainMenu {visibility: hidden;} footer {visibility:
 st.markdown(hide_st_style, unsafe_allow_html=True)
 Warning = False   
 
-DB = pd.read_csv("WSJ_Load.csv").drop_duplicates(['Title','Date'])
+DB = pd.read_csv("WSJ_Load.csv")\
+                .sort_values(by=['Update_Time'],ascending=False)\
+                .drop_duplicates(['Title','Date'])
+                
 csv  =convert_df(DB)
 
 TODAY_DATE = datetime.datetime.now()
