@@ -228,7 +228,8 @@ def get_next():
                 df = pre_process(data)
                 df2 = pd.DataFrame(df)    
                 df2 = DB.append(df2)        
-                df2 = df2.drop_duplicates(['Title','Date'])
+                df2 = df2.sort_values(by=['Update_Time'],ascending=False)\
+                         .drop_duplicates(['Title','Date'])
                 df2.to_csv("WSJ_Load.csv",index=False)                
                 return "Success"
         
@@ -277,6 +278,7 @@ def main_page():
         meg = get_next()
         with winner:
             st.warning(meg)
+        st.experimental_rerun()
   
   
 sys.tracebacklimit = 0
