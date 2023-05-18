@@ -6,6 +6,9 @@ import plotly.graph_objects as go
 from deta import Deta
 from dotenv import load_dotenv
 
+def convert_df(x):
+   return x.to_csv(index=False).encode('utf-8')
+
 def do_table_graph(data_x , title_plot = "", format_data = [""], height_table = None ,width_table = 1800, first_column = 60, value_columns  = 160 ):
     
     headerColor = '#44546A'
@@ -87,8 +90,6 @@ def box_grid(grid_data):
         
         return grid_response              
 
-
-
 def main_page():
     
     db= deta.Base("wsj_scraped")    
@@ -109,10 +110,24 @@ def main_page():
     with b:          
         st.metric('Asof:', df1['Date_Scrape'].max())
         
+        
     
     st.markdown("\n\n\n\n\n")
+    st.markdown("\n\n\n\n\n")
+    st.markdown("\n\n\n\n\n")
+    st.markdown("\n\n\n\n\n")
+    st.markdown("\n\n\n\n\n")
+    
+    
+    _ , b  = st.columns([5,1])
+    
+     
+    with b:
+        st.download_button( "Export to CSV",   convert_df(df1),   "Data.csv",   "text/csv",   key='download-csv')
+    
     
     box_grid(df1)
+    
     
     st.markdown("\n\n\n\n\n")
     
@@ -159,8 +174,7 @@ def main_page():
 
 
         
-# load_dotenv(r'C:\Users\smonnoo\GitHub\MyCode\FARM\backend\.env')
-   
+load_dotenv(r'C:\Users\smonnoo\GitHub\MyCode\FARM\backend\.env')
 DETA_KEY = os.getenv('DETA_KEY')
 deta = Deta(DETA_KEY)
 
