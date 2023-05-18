@@ -5,3 +5,4 @@ selenium==4.2.0
 streamlit==1.9.0
 webdriver_manager==3.8.3
 streamlit-aggrid==0.3.3
+deta==1.1.0
