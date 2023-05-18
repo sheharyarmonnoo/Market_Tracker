@@ -97,7 +97,7 @@ def main_page():
     
     df = pd.DataFrame(feed)[['Event','Date','Period','Forecast','Actual','Date_Scrape']]
     
-    df1 = df1.drop_duplicates(['Event','Period']).sort_values(['Date'])     
+    df1 = df.drop_duplicates(['Event','Period']).sort_values(['Date'])     
     
        
     _, a , b  = st.columns([.2, 1,1])
@@ -159,7 +159,7 @@ def main_page():
 
 
         
-
+# load_dotenv(r'C:\Users\smonnoo\GitHub\MyCode\FARM\backend\.env')
    
 DETA_KEY = os.getenv('DETA_KEY')
 deta = Deta(DETA_KEY)
