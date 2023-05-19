@@ -181,9 +181,9 @@ def main_page():
                             
                         <div style='text-align: center'>
                             
-                        <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=14JrA&width=870&height=475"
+                        <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=14JrA&width=650&height=475"
                         scrolling="no" frameborder="0" 
-                        style="overflow:hidden; width:870px; height:525px; "
+                        style="overflow:hidden; width:650px; height:525px; "
                         allowTransparency="true" loading="lazy"></iframe>
         
                         
@@ -203,8 +203,8 @@ def main_page():
                         
                             <div style='text-align: center'>
                                     
-                    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=135dr&width=870&height=475" 
-                    scrolling="no" frameborder="0" style="overflow:hidden; width:870px; height:525px;"
+                    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=135dr&width=650&height=475" 
+                    scrolling="no" frameborder="0" style="overflow:hidden; width:650px; height:525px;"
                     allowTransparency="true" loading="lazy" ></iframe>
                     
                         </div>
