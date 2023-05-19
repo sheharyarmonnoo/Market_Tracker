@@ -5,6 +5,7 @@ import regex as re ,pandas as pd,  datetime ,os
 import plotly.graph_objects as go
 from deta import Deta
 from dotenv import load_dotenv
+import streamlit.components.v1 as components
 
 def convert_df(x):
    return x.to_csv(index=False).encode('utf-8')
@@ -131,37 +132,94 @@ def main_page():
     
     st.markdown("\n\n\n\n\n")
     
-    st.markdown("""
-                
-                These indicators offer valuable insights into various sectors of the economy, including retail, housing, energy, and employment.
-                
-                They can be useful for tracking economic trends, assessing market conditions, and making informed decisions related to investments and financial planning.
-                
-                """)
-    st.markdown("\n\n")
+    with st.expander("See explanation"):
+        st.markdown("""
+                    
+                    These indicators offer valuable insights into various sectors of the economy, including retail, housing, energy, and employment.
+                    
+                    They can be useful for tracking economic trends, assessing market conditions, and making informed decisions related to investments and financial planning.
+                    
+                    """)
+        st.markdown("\n\n")
 
-    st.markdown(          """
-                
-                
-                - Advance Monthly Sales for Retail & Food Services: This indicator provides an early estimate of retail and food service sales for a specific month.
+        st.markdown(          """
+                    
+                    
+                    - Advance Monthly Sales for Retail & Food Services: This indicator provides an early estimate of retail and food service sales for a specific month.
 
-                - Industrial Production & Capacity Utilization: This indicator measures the output and capacity utilization of industrial sectors.
+                    - Industrial Production & Capacity Utilization: This indicator measures the output and capacity utilization of industrial sectors.
 
-                - New Residential Construction - Housing Starts and Building Permits: This indicator focuses on new residential construction and provides information on housing starts (the number of new residential construction projects that began) and building permits (the number of permits issued for new construction).
+                    - New Residential Construction - Housing Starts and Building Permits: This indicator focuses on new residential construction and provides information on housing starts (the number of new residential construction projects that began) and building permits (the number of permits issued for new construction).
 
-                - EIA Weekly Petroleum Status Report: This indicator provides information about petroleum inventory levels on a weekly basis.
+                    - EIA Weekly Petroleum Status Report: This indicator provides information about petroleum inventory levels on a weekly basis.
 
-                - Unemployment Insurance Weekly Claims Report - Initial Claims: This indicator presents the number of initial unemployment insurance claims filed on a weekly basis.
+                    - Unemployment Insurance Weekly Claims Report - Initial Claims: This indicator presents the number of initial unemployment insurance claims filed on a weekly basis.
 
-                - Existing Home Sales: This indicator focuses on the sales of previously owned homes.
+                    - Existing Home Sales: This indicator focuses on the sales of previously owned homes.
 
-                - EIA Weekly Natural Gas Storage Report: This indicator presents the natural gas storage levels on a weekly basis.
+                    - EIA Weekly Natural Gas Storage Report: This indicator presents the natural gas storage levels on a weekly basis.
 
 
-                
-                """)
-    
+                    
+                    """)
+        
     st.markdown("\n\n\n\n\n")
+    st.markdown("\n\n\n\n\n")
+    
+   
+           
+    a , b  = st.columns([ 1,1])
+    
+    
+
+        
+    with a:
+    
+
+        
+          components.html("""
+                            
+                        <div style='text-align: center'>
+                            
+                        <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=14JrA&width=870&height=475"
+                        scrolling="no" frameborder="0" 
+                        style="overflow:hidden; width:870px; height:525px; "
+                        allowTransparency="true" loading="lazy"></iframe>
+        
+                        
+                            </div>
+                            
+                            
+        
+                        
+                        """ ,
+            height=600 
+            
+            
+        )
+    with b:
+        
+        components.html("""
+                        
+                            <div style='text-align: center'>
+                                    
+                    <iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=135dr&width=870&height=475" 
+                    scrolling="no" frameborder="0" style="overflow:hidden; width:870px; height:525px;"
+                    allowTransparency="true" loading="lazy" ></iframe>
+                    
+                        </div>
+                        
+                        
+    
+                    
+                    """ ,
+        height=600 
+    )
+        
+        
+           
+
+    
     st.markdown("\n\n\n\n\n")
 
     
