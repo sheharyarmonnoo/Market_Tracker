@@ -99,7 +99,7 @@ def main_page():
     
     df = pd.DataFrame(feed)[['Event','Date','Period','Forecast','Actual','Date_Scrape']]
     
-    df1 = df.drop_duplicates(['Event','Period']).sort_values(['Date'])     
+    df1 = df.drop_duplicates(['Event','Period']).sort_values(['Date_Scrape'] , ascending=False)     
     
        
     _, a , b  = st.columns([.2, 1,1])
